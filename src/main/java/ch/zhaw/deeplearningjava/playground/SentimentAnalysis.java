@@ -43,15 +43,10 @@ public final class SentimentAnalysis {
 
     private SentimentAnalysis() {}
 
-    public static void main(String[] args) throws IOException, TranslateException, ModelException {
-        Classifications classifications = SentimentAnalysis.predict();
-        logger.info(classifications.toString());
-    }
-
-    public static Classifications predict()
+    public static Classifications predict(String input)
             throws MalformedModelException, ModelNotFoundException, IOException,
                     TranslateException {
-        String input = "I like DJL. DJL is the best DL framework!";
+        // String input = "I like DJL. DJL is the best DL framework!";
         logger.info("input Sentence: {}", input);
 
         Criteria<String, Classifications> criteria =
