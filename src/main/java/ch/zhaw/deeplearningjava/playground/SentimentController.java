@@ -22,7 +22,7 @@ public class SentimentController {
     @GetMapping("/predict")
     public String predict(@RequestParam(name="text", required = true) String text) throws Exception {
         var result = analysis.predict(text);
-        return result.getAsString();
+        return result.toJson();
     }
     
 }
