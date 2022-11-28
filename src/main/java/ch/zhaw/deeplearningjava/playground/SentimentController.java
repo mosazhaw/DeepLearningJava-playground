@@ -1,18 +1,13 @@
 package ch.zhaw.deeplearningjava.playground;
 
-import java.io.IOException;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ai.djl.MalformedModelException;
-import ai.djl.repository.zoo.ModelNotFoundException;
-import ai.djl.translate.TranslateException;
-
-
 @RestController
 public class SentimentController {
+
+    private SentimentAnalysis analysis = new SentimentAnalysis();
 
     @GetMapping("/")
     public String ping() {
@@ -25,8 +20,8 @@ public class SentimentController {
     }
 
     @GetMapping("/predict")
-    public String predict(@RequestParam(name="text", required = true) String text) throws MalformedModelException, ModelNotFoundException, IOException, TranslateException {
-        var result = SentimentAnalysis.predict(text);
+    public String predict(@RequestParam(name="text", required = true) String text) throws Exception {
+        var result = analysis.predict(text);
         return result.getAsString();
     }
     
