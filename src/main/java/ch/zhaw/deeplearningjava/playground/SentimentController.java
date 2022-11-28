@@ -9,7 +9,7 @@ public class SentimentController {
 
     private SentimentAnalysis analysis = new SentimentAnalysis();
 
-    @GetMapping("/")
+    @GetMapping("/ping")
     public String ping() {
         return "Sentiment app is up and running!";
     }
@@ -19,7 +19,7 @@ public class SentimentController {
         return 42;
     }
 
-    @GetMapping("/predict")
+    @GetMapping("/sentiment")
     public String predict(@RequestParam(name="text", required = true) String text) throws Exception {
         var result = analysis.predict(text);
         return result.toJson();
