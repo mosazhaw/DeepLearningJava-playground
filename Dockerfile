@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17-jdk-slim
 
 # Copy Files
 WORKDIR /usr/src/app
