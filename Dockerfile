@@ -1,6 +1,12 @@
 FROM openjdk:17-jdk-alpine
 
-COPY target/*.jar app.jar
+# Copy Files
+WORKDIR /usr/src/app
+COPY . .
 
+# Install
+RUN ./mvnw -Dmaven.test.skip=true package
+
+# Docker Run Command
 EXPOSE 8080
-CMD ["java","-jar","/app.jar"]
+CMD ["java","-jar","/usr/src/app/target/playground-0.0.1-SNAPSHOT.jar"]
