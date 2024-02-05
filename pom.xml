@@ -18,24 +18,27 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>ai.djl.pytorch</groupId>
-			<artifactId>pytorch-model-zoo</artifactId>
-			<version>0.19.0</version>
-		</dependency>
-		<dependency>
 			<groupId>ai.djl</groupId>
-			<artifactId>model-zoo</artifactId>
-			<version>0.19.0</version>
+			<artifactId>api</artifactId>
+			<version>0.26.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>ai.djl</groupId>
 			<artifactId>basicdataset</artifactId>
-			<version>0.19.0</version>
+			<version>0.26.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>ai.djl</groupId>
-			<artifactId>api</artifactId>
-			<version>0.19.0</version>
+			<artifactId>model-zoo</artifactId>
+			<version>0.26.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-model-zoo</artifactId>
+			<version>0.26.0</version>
 		</dependency>
 
 		<dependency>
@@ -56,34 +59,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		    <plugin>
-		        <groupId>com.microsoft.azure</groupId>
-		        <artifactId>azure-webapp-maven-plugin</artifactId>
-		        <version>2.7.0</version>
-		        <configuration>
-		            <schemaVersion>v2</schemaVersion>
-		            <subscriptionId></subscriptionId>
-		            <resourceGroup>playground-1668078167731-rg</resourceGroup>
-		            <appName>playground-1668078167731</appName>
-		            <pricingTier>F1</pricingTier>
-		            <region>centralus</region>
-		            <runtime>
-		                <os>Linux</os>
-		                <javaVersion>Java 17</javaVersion>
-		                <webContainer>Java SE</webContainer>
-		            </runtime>
-		            <deployment>
-		                <resources>
-		                    <resource>
-		                        <directory>${project.basedir}/target</directory>
-		                        <includes>
-		                            <include>*.jar</include>
-		                        </includes>
-		                    </resource>
-		                </resources>
-		            </deployment>
-		        </configuration>
-		    </plugin>
 		</plugins>
 	</build>
 
