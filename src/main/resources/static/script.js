@@ -17,10 +17,12 @@ function getSentiment(event, text) {
     }).then(
         response => {
             console.log(response)
-            response.text().then(function (text) {
-                answer.innerHTML = text;
+            response.json().then(function (data) {
+                let positivePercent = (data.find(item => item.className === "Positive").probability * 100).toFixed(2) + "%";
+                let negativePercent = (data.find(item => item.className === "Negative").probability * 100).toFixed(2) + "%";
+                positive.innerHTML = positivePercent;
+                negative.innerHTML = negativePercent;
             });
-
         }
     ).then(
         success => console.log(success)
